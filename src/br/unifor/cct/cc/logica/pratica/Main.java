@@ -25,10 +25,19 @@ public class Main {
 		System.out.print("Informe uma matrícula: ");
 		int matricula1 = scan.nextInt();
 		while(matricula1 != 0){
-		System.out.printf("Matricula existente: %b \n", Matricula(registro, matricula1));
-		System.out.print("Informe uma matrícula: ");
-		matricula1 = scan.nextInt();
+			System.out.printf("Matricula existente: %b \n", Matricula(registro, matricula1));
+			System.out.print("Informe uma matrícula: ");
+			matricula1 = scan.nextInt();
 		}
+		System.out.println(" ");
+		System.out.println("Informe uma matrícula: ");
+		int matricula2 = scan.nextInt();
+		Matricula1(registro, matricula2);
+		do {
+			System.out.println("Informe uma matrícula: ");
+			matricula2 = scan.nextInt();
+			Matricula2(registro, matricula2, media);
+		} while(matricula2 != 0);
 	}
 
 	public static void ImprimirTabular(Registro registro) {
@@ -60,6 +69,36 @@ public class Main {
 			return true;
 		}else{
 			return false;
+		}
+	}
+	public static void Matricula1(Registro registro, int matricula) {
+		int indice = 10;
+		for (int i = 0; i < registro.matricula.length; i++) {
+			if (matricula == registro.matricula[i]) {
+				indice = i;
+			}
+		}
+		if (indice == 10) {
+			System.out.println("-1");
+		} else {
+			System.out.println(indice);
+		}
+	}
+	public static void Matricula2(Registro registro, int matricula, double[] media) {
+		int indice = 10;
+		for (int i = 0; i < registro.matricula.length; i++) {
+			if (matricula == registro.matricula[i]) {
+				indice = i;
+			}
+		}
+		if (matricula == 0) {
+
+		} else {
+			if (indice == 10) {
+				System.out.println("-1");
+			} else {
+				System.out.println(registro.nome[indice]+media[indice]);
+			}
 		}
 	}
 }
